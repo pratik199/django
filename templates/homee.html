@@ -1,0 +1,59 @@
+{% extends 'base/layout.html' %}
+{% load static %}
+{% block content %}
+{% if messages %}
+    {% for messages in messages %}
+    {{messages}}
+    {% endfor %}
+    {% endif %}
+    {% include 'testpage.html' %}
+    
+
+<div class="container"> 
+    <h1>HOMEPAGE</h1><br>
+    <form action="" method="POST" classs="mt-4">
+        {% csrf_token %}
+        {{form.as_p}}
+        <input type="submit" value="Search" class="btn btn-info"><br>
+        <br>
+    </form>
+    
+
+    <a href="create-student"><button type="button" class="btn btn-primary pull-right">
+        <span class="float-right">Create</span>
+    </button></a>
+{% if result %}
+<table class="table table-dark">
+    <thead>
+      <tr>
+        <th scope="col">ID</th>
+        <th scope="col">Name</th>
+        <th scope="col">Department</th>
+        <th scope="col">Action</th>
+        
+      </tr>
+    </thead>
+    
+    <tbody>
+    {% for r in result %}    
+      <tr>
+        <th scope="row">{{r.id}}</th>
+        <td>{{r.student_name}}</td>
+        <td>{{r.department}}</td>
+        <td>
+            <a href="delete-student/{{r.id}}"><button type="button" class="btn btn-primary">Delete</button></a>
+            <a href="edit-student/{{r.id}}"><button type="button" class="btn btn-danger">Edit</button></a>
+        </td>
+      </tr>
+      {% endfor %}
+
+{% endif %}
+{% endblock %}
+    </tbody>
+  </table>
+</div>
+
+
+
+
+    

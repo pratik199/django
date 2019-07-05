@@ -1,0 +1,14 @@
+{% extends 'base/layout.html' %}
+{% load static %}
+{% block content %}
+<h1>Hi! This is Template</h1>
+<img src="{%static 'img/pratik.jpg' %}" alt="">
+<ul>
+    {% for i in 'jello' %}
+    <li>{{i}}</li>
+    {% endfor %}
+</ul>
+<ul>
+  
+</ul>
+{% endblock %}
