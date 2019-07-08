@@ -19,8 +19,8 @@ def home_page(request):
 def about(request):
     return render(request,'about.html')
 
-def contact(request):
-    return render(request,'contact.html')
+# def contact(request):
+#     return render(request,'contact.html')
 
 def boot(request):
     return render(request,'boot.html')  
